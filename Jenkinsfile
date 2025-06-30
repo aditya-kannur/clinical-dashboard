@@ -1,10 +1,6 @@
 pipeline {
   agent any
 
-  environment {
-    DOCKERHUB_REPO = "adityakannur"
-  }
-
   stages {
     stage('Clone Repo') {
       steps {
@@ -15,36 +11,32 @@ pipeline {
     stage('Build Backend Image') {
       steps {
         echo '📦 Building backend Docker image...'
-        script {
-          docker.build("adityakannur/clinical-backend", "./backend")
+        dir('backend') {
+          sh 'docker build -t clinical-backend .'
         }
       }
     }
 
     stage('Build Frontend Image') {
       steps {
-        echo '📦 Building frontend Docker image...'
-        script {
-          docker.build("${DOCKERHUB_REPO}/clinical-frontend", "./frontend")
+        echo '🎨 Building frontend Docker image...'
+        dir('frontend') {
+          sh 'docker build -t clinical-frontend .'
         }
       }
     }
 
-    stage('Push Images') {
+    stage('Test') {
       steps {
-        echo '🚀 Pushing images to Docker Hub...'
-        script {
-          docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-creds') {
-            docker.image("${DOCKERHUB_REPO}/clinical-backend").push()
-            docker.image("${DOCKERHUB_REPO}/clinical-frontend").push()
-          }
-        }
+        echo '🧪 Run test cases...'
+        // Add test commands here
       }
     }
 
-    stage('Deploy to Kubernetes') {
+    stage('Deploy') {
       steps {
-        echo '🔧 Deploying to Kubernetes (optional step)...'
+        echo '🚀 Deploying the app...'
+        // Add deploy steps (e.g., `docker-compose up` or `kubectl apply`)
       }
     }
   }
