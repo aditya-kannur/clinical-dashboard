@@ -16,7 +16,7 @@ pipeline {
       steps {
         echo '📦 Building backend Docker image...'
         script {
-          docker.build("${DOCKERHUB_REPO}/clinical-backend", "./backend")
+          docker.build("adityakannur/clinical-backend", "./backend")
         }
       }
     }
