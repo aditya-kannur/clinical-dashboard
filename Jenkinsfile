@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Clone Repo') {
       steps {
-        git credentialsId: 'github-creds', url: 'https://github.com/adityakannur/clinical-dashboard.git', branch: 'master'
+        git credentialsId: 'github-creds', url: 'https://github.com/adityakannur/clinical-dashboard', branch: 'master'
       }
     }
 
