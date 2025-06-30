@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Clone Repo') {
       steps {
-        git credentialsId: 'github-creds', url: 'https://github.com/adityakannur/clinical-dashboard', branch: 'master'
+        git credentialsId: 'github-creds', url: 'https://github.com/aditya-kannur/clinical-dashboard', branch: 'master'
       }
     }
 
@@ -45,8 +45,6 @@ pipeline {
     stage('Deploy to Kubernetes') {
       steps {
         echo '🔧 Deploying to Kubernetes (optional step)...'
-        // Uncomment below if Jenkins host has access to kubectl
-        // sh 'kubectl apply -f k8s/'
       }
     }
   }
