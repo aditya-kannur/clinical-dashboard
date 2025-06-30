@@ -23,7 +23,7 @@ export default function TrialForm({ onAdd }) {
     }
   };
 
-  return (
+  return ( 
     <form className="trial-form" onSubmit={handleSubmit}>
       <input name="name" placeholder="Trial Name" value={form.name} onChange={handleChange} required className="form-input" />
       <input name="phase" placeholder="Phase" value={form.phase} onChange={handleChange} required className="form-input" />

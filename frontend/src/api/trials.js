@@ -39,7 +39,7 @@ export const deleteTrial = async (id) => {
   }
 };
 
-// PUT (update) a trial by ID
+// PUT (update) a trial by ID 
 export const updateTrial = async (id, data) => {
   try {
     const res = await fetch(`${API_URL}/${id}`, {
