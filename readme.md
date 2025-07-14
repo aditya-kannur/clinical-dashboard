@@ -20,21 +20,21 @@ This project demonstrates clinical dashboard, involving containerization, orches
 
 .
 ├── backend/
-│ ├── Dockerfile
-│ ├── server.js
-│ ├── routes/
-│ └── models/
+  │ ├── Dockerfile
+  │ ├── server.js
+  │ ├── routes/
+  │ └── models/
 ├── frontend/
-│ ├── Dockerfile
-│ └── src/
+  │ ├── Dockerfile
+  │ └── src/
 ├── docker-compose.yml
 ├── k8s/
-│ ├── frontend-deployment.yaml
-│ ├── backend-deployment.yaml
-│ ├── mongo-deployment.yaml
-│ ├── services.yaml
-│ ├── configmap.yaml
-│ └── secrets.yaml
+  │ ├── frontend-deployment.yaml
+  │ ├── backend-deployment.yaml
+  │ ├── mongo-deployment.yaml
+  │ ├── services.yaml
+  │ ├── configmap.yaml
+  │ └── secrets.yaml
 └── Jenkinsfile
 
 ---
@@ -144,14 +144,6 @@ Jenkins Setup:
 -Add GitHub and DockerHub credentials.
 -Create a pipeline from a Jenkinsfile.
 -Define build steps: clone → build Docker images → push → deploy to k8s.
-
-🌍 Accessing Services
-
--Frontend: http://localhost:3000 or NodePort IP
-
--Backend API: http://localhost:5000/api
-
--MongoDB: mongodb://mongo:27017
 
 📌 Notes
 Ensure Docker Desktop with Kubernetes is running.
